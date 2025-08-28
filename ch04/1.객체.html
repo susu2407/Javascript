@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1.객체</title>
+    <!-- 자바스크립트 연결 -->
+    <script src="./js/Account.js"></script>
+    <!--
+        날짜 : 2025/08/28
+        이름 : 이수연
+        내용 : 4장 Javascript 객체
+    -->
+</head>
+<body>
+    <h3>1.객체</h3>
+    <script>
+        // 클래스 생성 (Account.js 파일과 연결하여 사용)
+        const kb = new Account('국민은행', '101-12-1001', '김유신', 10000);
+        kb.deposit(40000);
+        kb.withdraw(35000);
+        kb.show();
+        
+        const wr = new Account('우리은행', '101-22-1022', '김춘추', 20000);
+        kb.deposit(40000);
+        kb.withdraw(35000);
+        kb.show();
+        
+        // 사용자 정의 객체(JSON)
+        const sonata = {
+
+            name: '소나타',
+            color: '흰색',
+            speed: 0,
+
+            speedUp: function(speed){
+                this.speed += speed;
+            },
+            speedDown: function(speed){
+                this.speed -= speed;
+            },
+            show: function(){
+                document.write('<p>');
+                document.write('차량명 : ' + this.name + '<br>');
+                document.write('차량색 : ' + this.color + '<br>');
+                document.write('속도 : ' + this.speed + '<br>');
+                document.write('</p>');
+            }
+        }
+
+        sonata.speedUp(100);
+        sonata.speedDown(20);
+        sonata.show();
+
+        // 여기까지가 기본적인 객체 생성이다. 
+    </script>
+    
+</body>
+</html>
