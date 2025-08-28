@@ -6,7 +6,7 @@ function minus(x, y) {
     return x - y;
 }
 
-function muli(x, y) {
+function multi(x, y) {
     return x * y;
 }
 

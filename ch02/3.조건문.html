@@ -23,7 +23,11 @@
         }
 
         if(num1 > 0) {
-            document.write('<p>num1은 0보다 크다.</p>');
+            document.write('<p>num1은 0보다 크고, num2는 1보다 크다.</p>');
+        }
+
+        if(num1 > 0 && num2 > 1){
+            document.write('<p>num1은 0보다 크고 그리고 num2는 1보다 크다.</p>');
         }
     </script>
 
@@ -59,7 +63,7 @@
 
     <h4>switch</h4>
     <script>
-        let score = prompt('<p>점수 입력</p>'); // 사용자로붜 값을 입력받는 대화상자
+        let score = prompt('<p>점수 입력</p>'); // 사용자로부터 값을 입력받는 대화상자
         document.write('<p>입력한 점수' + scroe + ', type : ' + typeof score + '</p>');
 
         let result = parseInt(score / 10);
