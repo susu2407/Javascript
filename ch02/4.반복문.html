@@ -13,7 +13,100 @@
 <body>
     <h3>4.반복문</h3>
     
-    <h3></h3>
-    
+    <h3>for</h3>
+    <script>
+        // for
+        for(let i=1; i<=5; i++) {
+            document.write('i : ' + i + '<br>');
+        }
+
+        // 1부터 10까지의 합
+        let sum = 0;
+        for(let k=1; k<=10; k++) {
+            sum += k;
+        }
+        document.write('<p>1부터 10까지의 합 : ' + sum + '</p>');
+
+        // 별삼각형
+        for(let a=1; a<=10; a++) {
+            for(let b=1; b<=a; b++) {
+                document.write('🔵');
+            }
+            document.write('<br>');
+        }
+        </script>
+
+    <h3>while</h3>
+    <script>
+        let total = 0;
+        let k =1;
+
+        while(k <= 10) {
+            
+            if(k % 2 == 0) {
+                total += k;
+            }
+            k++;
+        }
+
+        document.write('<p>1부터 10까지의 짝수 합 : ' + total + '</p>')
+
+        // do-while
+        let tot = 0;
+        let j = 1;
+
+        do {
+
+            if(j % 2 == 1) {
+                tot += j;
+            }
+
+            j++;
+
+        }while(j <= 10);
+
+        document.write('<p>1부터 10까지의 홀수 합 : ' + tot + '</p>');
+
+        // break
+        let num1 = 1;
+
+        while(true) {
+
+            if(num % 5 == 0 && num % 7 ==0) {
+                break;
+            }
+
+            num++;
+        }
+
+        document.write('<p>5와 7의 최소공배수 : ' + num + '</p>');
+
+
+    </script>
+
+    <h3>구구단</h3>
+    <table border="1">
+        <tr>
+            <th>2단</th>
+            <th>3단</th>
+            <th>4단</th>
+            <th>5단</th>
+            <th>6단</th>
+            <th>7단</th>
+            <th>8단</th>
+            <th>9단</th>
+        </tr>
+        <script>
+            for(let x=1; x <= 9; x++) {
+                document.write('<tr>');
+                for(let y=2; y<=9; y++) {
+
+                    document.write('<td>'+ y + 'x' + x + '=' + x * y + '</td>');
+                }
+                document.write('</tr>');
+            }
+        </script>
+    </table>
+
 </body>
 </html>
