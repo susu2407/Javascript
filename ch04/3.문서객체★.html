@@ -101,8 +101,8 @@
         <li>광주</li>
     </ul>
 
-    <p class="concat"></p>
-    <p class="concat"></p>
+    <p class="content"></p>
+    <p class="content"></p>
 
     <div class="box">box1</div>
     <div class="box green">box2</div>
@@ -140,12 +140,14 @@
         console.log('html : ' + html + '<br>');
 
         const contents = document.querySelectorAll('.content');
-        //contents[0].innerText = '<em>TEXT 내용입니다.</em>'
-        //contents[1].innerHTML = '<em>HTML 내용입니다.</em>'
+        contents[0].innerText = '<em>TEXT 내용입니다.</em>';
+        contents[1].innerHTML = '<em>HTML 내용입니다.</em>';
 
         // 클래스 속성 수정
-        const box3 = document.getElementsByClassName('box');
-        //boxs[0].classList.add()
+        const boxs = document.getElementsByClassName('box');
+        boxs[0].classList.add('red');
+        boxs[1].classList.remove('green');
+        boxs[2].classList.toggle('blue');
 
         // box1 빨강색도 안나와.. em 내용도 안나와
 
