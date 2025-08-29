@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3.이벤트객체</title>
+    <!--해커가 입력단에 코드를 입력하는 등을 못하도록 전송하기 전에 검사를 해야 함.-->
+    <!--
+        날짜 : 2025/08/29
+        이름 : 이수연
+        내용 : 5장 Javascript 이벤트 
+    -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+
+            const container = document.getElementById('container');
+            const spans = document.getElementsByTagName('span');
+
+            // 이벤트 객체는 이벤트가 발생했을 때 콜백함수 인자로 생성
+            container.addEventListener('mousemove', function(e){
+                
+                spans[0].innerText = e.clientX;
+                spans[1].innerText = e.clientY;
+                spans[2].innerText = e.pageX;
+                spans[3].innerText = e.pageY;
+                spans[4].innerText = e.screenX;
+                spans[5].innerText = e.screenY;
+                spans[6].innerText = e.target;  // this와 동일(이벤트가 발생한 대상)
+                spans[7].innerText = e.target.tagName;
+                spans[8].innerText = e.target.id;
+                spans[9].innerText = e.timeStamp;
+
+            });
+
+
+            // 기본 이벤트 취소 (해제)
+            const links = document.getElementsByTagName('a');
+            const form = document.getElementsByTagName('form')[0];
+
+            links[0].addEventListener('click', function(e){
+                // <a>에는 기본적으로 버튼이벤트가 발생하는데, 버튼으로 사용할 때에 기본클릭 이벤트를 해제 함.
+                // <a>를 일반 버튼처럼 활용하기 위해서
+                // a 태그의 기본 클릭 이벤트를 해제
+                e.preventDefault();
+
+                alert('네이버 클릭!');
+                // return false; // 여기에서는 안됨.
+            });
+
+            links[1].onclick = function(e){
+                // e.preventDefault(); -> 할 수 있지만,
+
+                alert('구글 클릭!');
+
+                // 기본 이벤트 모델방식에서는 핸들러의 반환값 false로 기본 이벤트 해제
+                return false;
+            };
+
+            form.addEventListener('submit', function(e){
+                // 폼 전송 취소
+                e.preventDefault();
+
+                alert('전송 취소!');
+
+                // 비동기 방식으로 서버에 요청하는 것
+
+            });
+
+        });
+    </script>
+    <style>
+        #container {
+            width: 600px;
+            height: 300px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h3>3.이벤트 객체</h3>
+
+    <h4>이벤트 객체 주요 속성</h4>
+    <div id="container"></div>
+    <p>
+        clientX : <span>0</span><br>
+        clientY : <span>0</span><br>
+        pageX : <span>0</span><br>
+        pageY : <span>0</span><br>
+        screenX : <span>0</span><br>
+        screenY : <span>0</span><br>
+        target: <span>0</span><br>
+        target name: <span>0</span><br>
+        target id: <span>0</span><br>
+        timestamp : <span>0</span><br>
+    </p>
+
+
+    <h4>이벤트 취소</h4>
+    <a href="http://naver.com">네이버</a>
+    <a href="http://google.com">구글</a>
+
+    <form action="https://google.com">
+        <input type="text" name="uid"><br>
+        <input type="text" name="pass"><br>
+        <input type="submit" value="전송"><br> <!-- 누르면 내장객체?를 보내는 것이 기본으로 들어 있다. -->
+    </form>
+
+    <div id="result">
+        <span></span>
+        <span></span>
+    </div>
+
+</body>
+</html>
